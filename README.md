@@ -1,5 +1,28 @@
 # Backend Task Challenge
 
+## Endpoints
+
+### Articles
+* List / Create http://127.0.0.1:8000/api/articles/
+* Detail / Update / Delete http://127.0.0.1:8000/api/articles/<id> e.g http://127.0.0.1:8000/api/articles/1/
+* Filtering
+    * By title http://127.0.0.1:8000/api/articles/?title=dell
+    * By content http://127.0.0.1:8000/api/articles/?content=machine
+
+* Ordering
+    * By title http://127.0.0.1:8000/api/articles/?ordering=title
+    * By created_at http://127.0.0.1:8000/api/articles/?ordering=created_at
+
+
+### Tags
+* List / Create http://127.0.0.1:8000/api/tags/
+* Detail / Update / Delete http://127.0.0.1:8000/api/tags/<id> e.g http://127.0.0.1:8000/api/tags/1
+
+* Add API to be able to add/remove Tag(s) to Article(s).
+    * Just go to detail view of some article and add/remove tag there e.g http://127.0.0.1:8000/api/articles/1/
+
+* List articles by tag(s) http://127.0.0.1:8000/api/articles/?tags=laptops
+
 ## Intro
 
 The objective here is to assess usage of Python, Django and DRF.
@@ -32,7 +55,7 @@ pip install -r requirements.txt
 Once at the repo's top-level run tests using `./manage.py test`. This should result in:
 
 ```
-$ ./manage.py test                      
+$ ./manage.py test
 Creating test database for alias 'default'...
 System check identified no issues (0 silenced).
 ....
@@ -97,7 +120,7 @@ Use DRF `APITestCase` case to add tests that cover the filtering and ordering fu
 ## Task: Part 3. Add tagging functionality
 
 * Add `Tag` model, where a `Tag` can have a parent `Tag`.
-  * We can have at maximum two levels in the hierarchy. 
+  * We can have at maximum two levels in the hierarchy.
     * Max one parent.
     * No multi-parent and/or tree structures.
   * Therefore `Tag` must have `name`, `slug`, and `parent` FK (nullable)
